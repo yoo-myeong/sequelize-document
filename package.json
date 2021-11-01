@@ -1,0 +1,24 @@
+{
+  "name": "sequelize-document",
+  "version": "1.0.0",
+  "description": "sequlize.org 공식문서 참고해서 orm 공부",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoo-myeong/sequelize-document.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yoo-myeong/sequelize-document/issues"
+  },
+  "homepage": "https://github.com/yoo-myeong/sequelize-document#readme",
+  "dependencies": {
+    "mysql2": "^2.3.2",
+    "sequelize": "^6.8.0"
+  }
+}
