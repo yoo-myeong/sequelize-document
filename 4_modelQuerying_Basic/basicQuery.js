@@ -18,6 +18,9 @@ const User = sequelize.define("user", {
   await sequelize.sync({ force: true });
   // insert
   const jane = await User.create({ name: "Jane", age: "4" });
+  const seon = await User.create({ name: "seon", age: "10" });
+  const may = await User.create({ name: "may", age: "20" });
+  const ui = await User.create({ name: "ui", age: "4" });
 
   // SELECT query
   // SELECT foo, bar FROM ...
@@ -26,6 +29,7 @@ const User = sequelize.define("user", {
   });
   console.log("All users:", JSON.stringify(users));
   console.log("------------------------------");
+
   // API안에 object로 가져올 속성을 지정할 수 있다. 안하면 전부 다 가져옴
   // SELECT foo, bar AS baz, qux FROM ...
   const users2 = await User.findAll({
@@ -33,6 +37,7 @@ const User = sequelize.define("user", {
   });
   console.log("All users:", JSON.stringify(users2));
   console.log("------------------------------");
+
   // COUNT를 사용하기 위한 fn
   // SELECT foo, COUNT(hats) AS n_hats, bar FROM ...
   const users3 = await User.findAll({
@@ -104,6 +109,24 @@ const User = sequelize.define("user", {
       ],
     },
   });
+  console.log(JSON.stringify(data));
+  console.log("------------------------------");
+
+  // order
+  data = await User.findAll({
+    order: [["age", "DESC"]],
+  });
+  console.log(JSON.stringify(data));
+  console.log("------------------------------");
+
+  // group
+  data = await User.findAll({ group: "age" });
+  console.log(JSON.stringify(data));
+  console.log("------------------------------");
+
+  // increment, decrement
+  await User.increment({ age: 5 }, { where: { id: 1 } });
+  data = await User.findAll();
   console.log(JSON.stringify(data));
   console.log("------------------------------");
 })();
