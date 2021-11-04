@@ -22,9 +22,19 @@ const User = sequelize.define("user", {
 
   // Create
   // 인스턴스를 만들기 위해서는 build나 create를 사용하면 되는데 일반적으로 create를 사용한다.
-  // const jane = await User.create({ name: "Jane" });
-  // Code here에 추가
+
   const jane = await User.create({ name: "Jane" });
+  // 원하는 필드만 선택해서 save할 수도 있다.
+  const user = await User.create(
+    {
+      username: "alice123",
+      isAdmin: true,
+    },
+    { fields: ["username"] }
+  );
+  // let's assume the default of isAdmin is false
+  console.log(user.username); // 'alice123'
+  console.log(user.isAdmin); // false
 
   // 로깅
   // 인스턴스에는 많은 것들이 있기 때문에 직접 기록하려하면 혼란스러울 수 있다.
