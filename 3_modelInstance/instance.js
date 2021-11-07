@@ -21,7 +21,7 @@ const User = sequelize.define("user", {
   await sequelize.sync({ force: true });
 
   // Create
-  // 인스턴스를 만들기 위해서는 build나 create를 사용하면 되는데 일반적으로 create를 사용한다.
+  // 인스턴스를 만들기 위해서는 build&save나 create를 사용하면 되는데 일반적으로 create를 사용한다.
 
   const jane = await User.create({ name: "Jane" });
   // 원하는 필드만 선택해서 save할 수도 있다.

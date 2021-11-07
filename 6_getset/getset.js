@@ -1,21 +1,21 @@
-const { Sequelize, Model, DataTypes, Op } = require("sequelize");
-const sequelize = new Sequelize("sequelize", "root", "1234", {
-  host: "localhost",
-  dialect: "mysql",
-});
+// const { Sequelize, Model, DataTypes, Op } = require("sequelize");
+// const sequelize = new Sequelize("sequelize", "root", "1234", {
+//   host: "localhost",
+//   dialect: "mysql",
+// });
 
 // get
 // 클래스를 알아야 이해할 수 있을 것 같다.
 
-const User = sequelize.define("user", {
-  username: {
-    type: DataTypes.STRING,
-    get() {
-      const rawValue = this.getDataValue("username");
-      return rawValue ? rawValue.toUpperCase() : null;
-    },
-  },
-});
+// const User = sequelize.define("user", {
+//   username: {
+//     type: DataTypes.STRING,
+//     get() {
+//       const rawValue = this.getDataValue("username");
+//       return rawValue ? rawValue.toUpperCase() : null;
+//     },
+//   },
+// });
 
 const user = User.build({ username: "SuperUser123" });
 console.log(user.username); // 'SUPERUSER123'
